@@ -105,3 +105,6 @@ let fact : number= 1;
 // console.log(fib);
 
 
+
+
+console.log()
