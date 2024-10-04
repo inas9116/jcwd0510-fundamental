@@ -57,6 +57,8 @@ const kalimat : string="hello world ";
 const g: string = "ell"
 console.log(kalimat.replace(g,""));
 
+
+
 //SOAL 6 (kepakai di project)
 //Write a code to capitalize the first letter of each word in a string
 // ○ Example : “hello world” → “Hello World”
@@ -92,6 +94,8 @@ if(num1 > num2){
     console.log(num2)
 }
 
+// console.log(num1 > num2)
+
 
 
 
@@ -100,13 +104,11 @@ if(num1 > num2){
 // ○ Example : num1 = 42, num2 = 27, num3 = 18 → 18, 27, 42
 
 
-const Array = [42,27,18]
-Array.short
-// const numb1 : number = 42;
-// const numb2 : number = 27;
-// const numb3 : number = 18;
+const numb1 : number = 42;
+const numb2 : number = 27;
+const numb3 : number = 18;
 
-
+const kecil : number = Math.min(num1,num2,numb3);
 
 // console.log(Array.prototype.sort(CompressionStream: ()))
 
@@ -118,17 +120,7 @@ Array.short
 // type.
 // ○ Example : “hello” → 1
 
-// let v= typeof "";
-// let v1= typeof  ();
-
-// if (v /= v1){
-//     console.log
-
-// }
-// const data : string =""
-// const data1 : number = ()
-// if {
-//     console.log(1)}
+const input : any ="" //(any bisa diisi type data apa)
 
 //SOAL 11
 // Write a code to change every letter a into * from a string of input
