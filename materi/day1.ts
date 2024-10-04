@@ -14,6 +14,7 @@ console.log(nama.toLowerCase()); // cara langsung
 console.log(nama.toUpperCase()); //
 console.log(nama.replace("s","o"))
 console.log(nama.replaceAll("i","o"))
+console.log(nama.replaceAll(/i/gi,"o")) //case sensitive
 console.log(nama.split(" "))
 console.log(nama.concat(nama2))
 console.log(nama.slice())
