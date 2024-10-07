@@ -76,35 +76,16 @@ let fact : number= 1;
 // Example: 15 → 610
 
 
+let anumb: number = 0;
+let bnumb: number = 1;
+const cnumb: number = 1;
 
-// for (let i = 0; i<15; i++){
-//     console.log((i+i)+i);
-// }
+for (let i = 0; i < cnumb; i++) {
+  let next: number = anumb + bnumb;
+  anumb = bnumb;
+  bnumb = next;
+}
 
-// let fib : number = 0;
-// let n : number = 15;
-//  while (fib>=0){
-//     n = n+n;
-//     fib++;
-//  }
-//  console.log(+fib);
+console.log(anumb);
+console.log(anumb);
 
-
-// let fib: number[] = [0, 1];
-// let n : number = 15
-//     for (let i = 2; i <= n; i++) {
-//         fib[i] = fib[i - 1] + fib[i - 2];
-//     }
-//  console.log(fib);
-
-// let fib: number =;
-// let n : number = 15;
-// for(let i = 2; i<=n; i++) {
-//     fib 
-// }
-// console.log(fib);
-
-
-
-
-console.log()

@@ -9,7 +9,7 @@ const arr4 : string[] = new Array ("A","B","C");
 const arr5 : number[] = [1,2,3,4];
 const arr6 : number[] = new Array (1,2,3,4);
 
-// array ofnobject
+// array of object
 
 // const students : {name: string; email: string}[] = [
 //     {name:"budi", email:"budi@gmail.com"},
@@ -17,6 +17,8 @@ const arr6 : number[] = new Array (1,2,3,4);
 //     {name:"budi", email:"budi@gmail.com"},
 // ];
 
+// PascalCase
+// Singular
 // interface student {
 //     name: string;
 //     email: string;
@@ -41,13 +43,15 @@ const students : student [] = [
         {name:"siti",email:"siti@gmail.com", address:{
             street:"hgjljsd",
             city:"khgsua",
-        }},
+        },
+    },
         {name:"joko", email:"joko@gmail.com"},
     ];
 
     //===== FOR OF
 
     const fruits: string[]=["apple","banana","orange"];
+
     for (const fruit of fruits){
         console.log(fruit);
     }
@@ -97,7 +101,7 @@ const students : student [] = [
      // hanya bisa di akses di dalam function tsb
 
     function greeting (){
-        const hello = "hello";
+        const hello = "Hello";
         console.log(hello); // ini jalan karena di dalam scope
         return hello;
     }
@@ -113,14 +117,14 @@ const students : student [] = [
     //argument -> value yang dimasukkan saat pemanggilan function
     
 //              PARAMETER    
-//     function greeting(nama: string) {
-//         const hello = "HELLO";
-//         return hello + " " + nama;
-//      }
+    function greeting1(nama: string) {
+        const hello = "HELLO";
+        return hello + " " + nama;
+     }
 // //                  ARGUMENT
-//      console.log(greeting("budi"));
-//      console.log(greeting("siti"));
-//      console.log(greeting("joko"));
+     console.log(greeting1("budi"));
+     console.log(greeting1("siti"));
+     console.log(greeting1("joko"));
 
 
      // ======= DEFAULT PARAMETER 
@@ -139,15 +143,16 @@ const students : student [] = [
      //============ REST PARAMETER
      // mewakili sisa argument ke dalam variable parameter
 
-     function myFunc(a:number, B:number, ...sisaArgument: number[]) {
+     function myFunc(a:number, b:number, ...sisaArgument: number[]) {
         console.log(a);
         console.log(b);
         console.log(sisaArgument);
      }
-    
+    myFunc(1,2,3,4,5,6,7,8,9,10);
 
 
      //======== NESTED FUNCTION
+      
      // fungsi yang berada di dalam fungsi
      // inner function bisa akses parameter dari outer function
      // outer function tidak bisa akses parameter dari inner function
@@ -157,28 +162,30 @@ const students : student [] = [
      function getMessage(firstName: string){
         //inner function 1
         function sayHello(){
-            return  "Hello" + firstName + ",";
+            return  "Hello " + firstName + ",";
         }
 
         //inner function 2
-        function welcomeMessage(){
+        function welcomeMessage() {
             return "welcome to Purwadhika";
         }
-        return sayHello( ) + " " + welcomeMessage();
+        return sayHello() + " " + welcomeMessage();
      }
      console.log(getMessage("budi"));
 
 
      // =========== CLOSURE
+     // inner function selalu mempunyai akses ke variable dan parameter 
+     // dari outer function bahkan setelah outer function tsb di return
 
-     function greeting1(name: string){
+
+     function greeting2(name: string){
         const defaultMessage: string = " hello";
         return function (){
             return defaultMessage + " " + name;
         };
      }
-
-     const result6 = greeting1("budi");
+     const result6 = greeting2("budi");
      console.log(result6())
 
 
@@ -189,7 +196,7 @@ const students : student [] = [
 function countDown(number: number) {
     console.log(number);
     let nexNumber = number - 1;
-    if (nexNumber>0){
+    if (nexNumber > 0){
         countDown(nexNumber);
     }
 }
@@ -271,21 +278,21 @@ console.log(month);
 // rumus -> slice(startIndex, endIndex)
 
 const fruit: string[] = ["apple","banana","orange","lemon","mango"];
-console.log(fruit.slice(1,4)):
+console.log(fruit.slice(1,4));
 console.log(fruit.slice(-4,-1));
 
 // INDEXOF -> mencari index dari value yang kita search
 //kalo tidak ketemu akan mereturn -1
 
-const fruit2: string[]= ["apple","banana","orange","lemon","mango"];
-console.log(fruit2.indexOf("lemon"));
+const fruits2: string[]= ["apple","banana","orange","lemon","mango"];
+console.log(fruits2.indexOf("lemon"));
 
 // SORT -> mengurutkan isi array berupa string atau number
 
 // versi string
-const fruit4: string[]= ["apple","banana","orange","lemon","mango"];
-fruit4.sort();
-console.log(fruit4);
+const fruits4: string[]= ["apple","banana","orange","lemon","mango"];
+fruits4.sort();
+console.log(fruits4);
 
 // versi number tanpa compare function
 const poin : number[]=[3,5,1,9,6,2];
@@ -294,15 +301,24 @@ console.log(poin);
 
 //versi number menggunakan compare function
 const poin2: number[] = [3,5,1,9,6,2];
-poin2.sort((a,b)=> a-b); // asc(kecil ke besar)
+poin2.sort((a,b)=> a-b); // --> asc(kecil ke besar)
+// poin2.sort((a,b) => b-a); --> asc (besar ke kecil)
+console.log(poin2);
 
 
 
 // REVERSE -->membalikan urutan element dalam array
-
+const poin3 : number[] = [3,5,1,9,6,20];
+poin3.reverse();
+console.log(poin3);
 
 // FOREACH -> melakukan looping pada array tapi tidak me-return apapunn
-// 
+const fruits5: string[] = ["mango","apple","banana","orange","lemon"];
+
+const result1 = fruits5.forEach((fruit,index) => {
+    console.log(index);
+    console.log(fruit);
+});
 
 // MAP -> melakukan looping sama kaya forEach tapi mereturn array baru
 const fruit6: string[] = ["maggo","apple","banana","orane","lemon"];
@@ -322,7 +338,7 @@ const result8 = ages.filter((age) => {
 console.log(result8);
 
 
-// FIND -> mencari array yang pertama di temukan pertama kali dalam array
+// FIND -> mencari value di temukan pertama kali dalam array
  const ages2: number []= [3,15,29,15,40];
 
  const result9 = ages2.find((age) => age >14);
@@ -337,8 +353,8 @@ console.log(result8);
  //REDUCE -> biasa digunakan untuk melakukan operasi aritmatika 
  //pada tiap isi array
 
- const numbers1: number[] = [175,50,25];
- const result11 = numbers1.reduce((a,b) => a +b);
+ const numbers1: number[] = [175,50,25,50];
+ const result11 = numbers1.reduce((a,b) => a + b); // (menjumlahkan index a,b, dan seterusnya) 
  console.log(result11);
 
 

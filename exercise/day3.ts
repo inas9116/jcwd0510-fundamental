@@ -1,4 +1,4 @@
-// 1. git add .
+// 1. git add . (pastikan folder yang mau di push ke git hub)
 // 2. git commit -m "exercise day 3"
 //3. git push origin main
 
@@ -26,7 +26,25 @@ if(word === kata){
     console.log ("palindrome");
 } else{
     console.log("bukan palindrome");
+
+};
+
+// ( cara lain ) build in method 
+
+const kata1: string = "madam";
+const isPalindrome: boolean = kata1 === kata1.split("").reverse().join("");
+console.log(isPalindrome);
+
+// ( cara lainya lagi) tanpa build in method 
+const kata2 : string = "car";
+let reverse: string  = "";
+
+for (let i = kata2.length - 1; i >= 0; i--){
+    reverse +- kata2[i];
 }
+console.log(kata2 === reverse ? true : false);
+
+
 
 
 // SOAL 3
@@ -34,7 +52,13 @@ if(word === kata){
 // ○ Example : 100000 → “1 km”
 
 const cm: number = 100000; //bisa pakai (_) biar gampang di baca ex 100_000
-console.log(`${cm/100000} km`)
+console.log(`${cm/100000} km`);
+
+// cara lain 
+const cm1 : number = 100_000;
+const km : number = cm / 100_000;
+
+console.log(km + " km");
 
 //SOAL 4
 // Write a code to format number as currency (IDR)
@@ -45,7 +69,16 @@ let n: string = Intl.NumberFormat("id-ID", {
     style:"currency",
     currency:"IDR"
 }).format(z);
-console.log(n)
+console.log(n);
+
+const harga : number = 10_000;
+const hasil: string = Intl.NumberFormat ("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    maximumFractionDigits: 0,
+}).format(harga);
+
+console.log(hasil);
 
 
 
@@ -54,7 +87,7 @@ console.log(n)
 // ○ Example : string = “Hello world”, search string = “ell” → “Ho world”
 
 const kalimat : string="hello world ";
-const g: string = "ell"
+const g: string = "ell";
 console.log(kalimat.replace(g,""));
 
 
@@ -79,6 +112,22 @@ for (let i = 0; i < p.length; i++) {
 // Write a code to swap the case of each character from string
 // ○ Example : ‘The QuiCk BrOwN Fox’ -> ‘ tHE qUIcK bRoWn fOX’
 
+const kal: string = "The QuiCk BrOwN Fox";
+let swapKal: string = "";
+
+for (let i = 0; i < kal.length; i++) {
+    const kal2: string = kal[i];
+
+    if ( kal2 === kal[i].toUpperCase()){
+        swapKal += kal2.toLowerCase(); 
+    } else {
+        swapKal += kal2.toUpperCase();
+    }
+    
+}
+
+console.log(swapKal);
+
 
 
 //SOAL 8
@@ -94,7 +143,10 @@ if(num1 > num2){
     console.log(num2)
 }
 
-// console.log(num1 > num2)
+
+// cara lain
+
+console.log(num1 > num2 ? num1 : num1 )
 
 
 
@@ -108,9 +160,17 @@ const numb1 : number = 42;
 const numb2 : number = 27;
 const numb3 : number = 18;
 
-const kecil : number = Math.min(num1,num2,numb3);
+const kecil : number = Math.min(numb1,numb2,numb3);
+const besar : number = Math.max(numb1,numb2,numb3);
+const middle: number = numb1 + numb2 + numb3 - kecil - besar;
 
-// console.log(Array.prototype.sort(CompressionStream: ()))
+console.log (`${kecil} ${middle} ${besar}`);
+
+// cara lainya
+
+const urut : number[] = [numb1, numb2, numb3];
+const urutan : number[] = urut.sort((a, b) => a - b );
+console.log(urutan.join(" "));
 
 
 
@@ -120,11 +180,35 @@ const kecil : number = Math.min(num1,num2,numb3);
 // type.
 // ○ Example : “hello” → 1
 
-const input : any ="" //(any bisa diisi type data apa)
+const input : any = "" ;//(any bisa diisi type data apa)
+
+if (typeof input === "string") {
+    console.log("string");
+} else if (typeof input === "number") {
+    console.log("number");
+} else {
+    console.log("any");
+}
+
 
 //SOAL 11
 // Write a code to change every letter a into * from a string of input
 // ○ Example : ‘An apple a day keeps the doctor away’ -> `*n *pple * d*y keeps the doctor *w*y`
 
 const f: string = "An Apple a day keeps the doctor away"
-console.log(f.replaceAll(/a/gi,"*"))
+console.log(f.replaceAll(/a/gi,"*"));
+
+// cara lain
+
+const input1 : string = "An apple a day keeps the doctor away".toLowerCase();
+
+let modifInput : string = "";
+
+for (let i = 0 ; i < input1.length; i++){
+    if (input1[i] === "A".toLowerCase() ){
+        modifInput += "*";
+    } else {
+        modifInput += input1[i]
+    }
+}
+console.log(modifInput);
